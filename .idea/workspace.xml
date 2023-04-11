@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3cb90463-3058-4ec7-a97f-1689ab1a5b98" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Atributes/Point.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Atributes/Sprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Atributes/Velocity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DataConfig/Configure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DataConfig/Map.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Enums/Move.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Character/Character.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Character/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Item/Brick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Item/Grass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Item/Wall.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Object/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Panel/GamePlayPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Panel/IntoGamePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SystemManagement/EntitiesManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Map.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/brick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/wall.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2NmyW7GkS9YNI7QKWYeKY4v6GGA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/Users/nguyenhuynh/Documents/GitHub/bomber_man/src/main/resources",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3cb90463-3058-4ec7-a97f-1689ab1a5b98" name="Changes" comment="" />
+      <created>1680283583044</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680283583044</updated>
+    </task>
+    <servers />
+  </component>
+</project>
