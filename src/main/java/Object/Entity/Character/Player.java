@@ -4,6 +4,10 @@ import Atributes.Point;
 import Atributes.Sprite;
 import Atributes.Velocity;
 import DataConfig.Configure;
+import DataConfig.Map;
+import Enums.Items;
+import Object.Entity.Item.Bomb;
+import SystemManagement.EntitiesManagement;
 
 public class Player extends Character implements Configure {
 
@@ -11,17 +15,40 @@ public class Player extends Character implements Configure {
     private int currentBombs;
     private int timeResetCurrentBombs;
 
+    public static int numberOfPlayers = 0;
+
     /**
      * constructor 1.
-     * @param PlayerID  player ID
      * @param position position
      * @param width width
      * @param height height
      * @param orginal original sprite
      * @param velocity velocity
+     * @param entitiesManagement entities management
      */
-    public Player(int PlayerID, Point position, int width, int height, Sprite orginal, Velocity velocity) {
-        super(PlayerID, position, width, height, orginal, velocity);
+    public Player(Point position, int width, int height, Sprite orginal, Velocity velocity, Map map, EntitiesManagement entitiesManagement) {
+        super(position, width, height, orginal, velocity, map, entitiesManagement);
+        Left = new Sprite[] {
+                new Sprite("/left0.png"),
+                new Sprite("/left1.png"),
+                new Sprite("/left2.png"),
+        };
+        Right = new Sprite[] {
+                new Sprite("/right0.png"),
+                new Sprite("/right1.png"),
+                new Sprite("/right2.png"),
+        };
+        Up = new Sprite[] {
+                new Sprite("/up0.png"),
+                new Sprite("/up1.png"),
+                new Sprite("/up2.png"),
+        };
+        Down = new Sprite[] {
+                new Sprite("/down0.png"),
+                new Sprite("/down1.png"),
+                new Sprite("/down2.png"),
+        };
+        numberOfPlayers++;
     }
 
     /**
@@ -30,13 +57,34 @@ public class Player extends Character implements Configure {
      */
     public Player(Player other) {
         super(
-                other.getEntityID(),
                 other.getPosition(),
                 other.getWidth(),
                 other.getHeight(),
                 other.getSprite(),
-                other.getVelocity()
+                other.getVelocity(),
+                other.getMap(),
+                other.getEntitiesManagement()
         );
+        Left = new Sprite[] {
+                new Sprite("/left0.png"),
+                new Sprite("/left1.png"),
+                new Sprite("/left2.png"),
+        };
+        Right = new Sprite[] {
+                new Sprite("/right0.png"),
+                new Sprite("/right1.png"),
+                new Sprite("/right2.png"),
+        };
+        Up = new Sprite[] {
+                new Sprite("/up0.png"),
+                new Sprite("/up1.png"),
+                new Sprite("/up2.png"),
+        };
+        Down = new Sprite[] {
+                new Sprite("/down0.png"),
+                new Sprite("/down1.png"),
+                new Sprite("/down2.png"),
+        };
     }
 
     /**
@@ -77,6 +125,20 @@ public class Player extends Character implements Configure {
         this.currentBombs = currentBombs;
     }
 
+    //TODO: laying bomb.
+    public Bomb layingBomb(Map map) {
+        Point grid = map.onGrid(getPosition().getX(), getPosition().getY(), this);
+        return new Bomb(grid, TILE_SIZE, TILE_SIZE, new Sprite("/bomb0.png"), getEntitiesManagement(), map);
+    }
+
+    @Override
+    public void setDead(boolean dead) {
+        super.setDead(dead);
+        if (dead == true) {
+            numberOfPlayers--;
+        }
+    }
+
     /**
      * get current bombs.
      * @return int
@@ -95,6 +157,8 @@ public class Player extends Character implements Configure {
             e.printStackTrace();
         }
     }
+
+
 
     /**
      * reset current bombs.

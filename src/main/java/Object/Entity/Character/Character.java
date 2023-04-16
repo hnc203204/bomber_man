@@ -7,8 +7,10 @@ import DataConfig.Configure;
 import DataConfig.Map;
 import Enums.Move;
 import Object.Entity.Entity;
+import SystemManagement.EntitiesManagement;
 
 public class Character extends Entity implements Configure {
+
 
     private Velocity velocity;
     private boolean goLeft = false;
@@ -37,15 +39,15 @@ public class Character extends Entity implements Configure {
 
     /**
      * constructor 1.
-     * @param CharacterID characterID
      * @param position position
      * @param width width
      * @param height height
      * @param original original sprite
      * @param velocity velocity
+     * @param entitiesManagement entities management
      */
-    public Character(int CharacterID,Point position, int width, int height, Sprite original, Velocity velocity) {
-        super(CharacterID, position, width, height, original);
+    public Character(Point position, int width, int height, Sprite original, Velocity velocity, Map map, EntitiesManagement entitiesManagement) {
+        super(position, width, height, original, entitiesManagement, map);
         setVelocity(velocity);
         currentSprite = -1;
     }
@@ -55,8 +57,9 @@ public class Character extends Entity implements Configure {
      * @param oth other
      */
     public Character(Character oth) {
-        super(oth.getEntityID(), oth.getPosition(), oth.getWidth(), oth.getHeight(), oth.getSprite());
+        super(oth.getPosition(), oth.getWidth(), oth.getHeight(), oth.getSprite(), oth.getEntitiesManagement(), oth.getMap());
         setVelocity(new Velocity(oth.getVelocity().getX(), oth.getVelocity().getY()));
+        currentSprite = -1;
     }
 
 
@@ -83,7 +86,8 @@ public class Character extends Entity implements Configure {
     public boolean makeMovementPerSecond(Velocity velocity, Map map) {
         if (map.validMove(
                 getPosition().getX() + getVelocity().getX() * velocity.getX(),
-                getPosition().getY() + getVelocity().getY() * velocity.getY())
+                getPosition().getY() + getVelocity().getY() * velocity.getY(),
+                this)
         ) {
             setPosition(new Point(
                             getPosition().getX() + getVelocity().getX() * velocity.getX(),
@@ -95,10 +99,19 @@ public class Character extends Entity implements Configure {
         return false;
     }
 
+    /**
+     * get map.
+     * @return map
+     */
+    public Map getMap() {
+        return map;
+    }
+
     public boolean _makeMovementPerSecond(Velocity velocity, Map map) {
         if (map.validMove(
                 getPosition().getX() + getVelocity().getX() * velocity.getX(),
-                getPosition().getY() + getVelocity().getY() * velocity.getY())
+                getPosition().getY() + getVelocity().getY() * velocity.getY(),
+                this)
         ) {
 
             return true;
@@ -170,7 +183,7 @@ public class Character extends Entity implements Configure {
                 currentSprite = (currentSprite + 1) % 24;
             }
             charImage = Left;
-//            makeMovementPerSecond(Move.LEFT.getDirection());
+            makeMovementPerSecond(Move.LEFT.getDirection(), map);
         } else if (goRight) {
             if (charImage != Right) {
                 currentSprite = 0;
@@ -178,7 +191,7 @@ public class Character extends Entity implements Configure {
                 currentSprite = (currentSprite + 1) % 24;
             }
             charImage = Right;
-//            makeMovementPerSecond(Move.RIGHT.getDirection());
+            makeMovementPerSecond(Move.RIGHT.getDirection(), map);
         } else if (goDown) {
             if (charImage != Down) {
                 currentSprite = 0;
@@ -186,7 +199,7 @@ public class Character extends Entity implements Configure {
                 currentSprite = (currentSprite + 1) % 24;
             }
             charImage = Down;
-//            makeMovementPerSecond(Move.DOWN.getDirection());
+            makeMovementPerSecond(Move.DOWN.getDirection(), map);
         } else if (goUp) {
             if (charImage != Up) {
                 currentSprite = 0;
@@ -194,7 +207,7 @@ public class Character extends Entity implements Configure {
                 currentSprite = (currentSprite + 1) % 24;
             }
             charImage = Up;
-//            makeMovementPerSecond(Move.UP.getDirection());
+            makeMovementPerSecond(Move.UP.getDirection(), map);
         }
     }
 

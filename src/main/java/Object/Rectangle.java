@@ -95,4 +95,49 @@ public class Rectangle implements Configure {
     public int getWidth() {
         return width;
     }
+
+    /**
+     * is collision
+     * @param other other
+     * @return boolean
+     */
+    public boolean isCollision(Rectangle other) {
+        int max_left = Math.max(
+                getPosition().getX(),
+                other.getPosition().getX()
+        );
+        int min_right = Math.min(
+                getPosition().getX() + getWidth(),
+                other.getPosition().getX() + other.getWidth()
+        );
+        int max_up = Math.max(
+                getPosition().getY(),
+                other.getPosition().getY()
+        );
+        int min_down = Math.min(
+                getPosition().getY() + getHeight(),
+                other.getPosition().getY() + other.getHeight()
+        );
+        return (min_right - max_left > 0 && min_down - max_up > 0);
+    }
+
+    public int getCollisionArea(Rectangle other) {
+        int max_left = Math.max(
+                getPosition().getX(),
+                other.getPosition().getX()
+        );
+        int min_right = Math.min(
+                getPosition().getX() + getWidth(),
+                other.getPosition().getX() + other.getWidth()
+        );
+        int max_up = Math.max(
+                getPosition().getY(),
+                other.getPosition().getY()
+        );
+        int min_down = Math.min(
+                getPosition().getY() + getHeight(),
+                other.getPosition().getY() + other.getHeight()
+        );
+        return (min_right - max_left) * (min_down - max_up);
+    }
 }

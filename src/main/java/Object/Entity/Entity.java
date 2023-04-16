@@ -2,32 +2,77 @@ package Object.Entity;
 
 import Atributes.Point;
 import Atributes.Sprite;
+import DataConfig.Map;
 import Object.Rectangle;
+import SystemManagement.EntitiesManagement;
+
+import java.awt.*;
 
 public abstract class Entity extends Rectangle implements Runnable {
 
+    public static int numberOfEntities = 0;
     protected Sprite original;
     protected boolean dead;
     protected int EntityID;
+    protected EntitiesManagement entitiesManagement;
+    protected Map map;
 
     /**
      * constructor 1.
-     * @param EntityID entity ID.
      * @param position position
      * @param width width
      * @param height height
      * @param original original
+     * @param entitiesManagement entities mangement
      */
-    public Entity(int EntityID, Point position, int width, int height, Sprite original) {
+    public Entity(Point position, int width, int height, Sprite original, EntitiesManagement entitiesManagement, Map map) {
         super(position, width, height);
         setOriginal(original);
-        setEntityID(EntityID);
+        numberOfEntities++;
+        setEntityID(numberOfEntities);
+        this.entitiesManagement = entitiesManagement;
+        this.map = map;
     }
 
     public Entity(Entity other) {
         super(other.getPosition(), other.getWidth(), other.getHeight());
         setOriginal(other.getOriginal());
         setEntityID(other.getEntityID());
+        setEntitiesManagement(other.getEntitiesManagement());
+        setMap(other.getMap());
+
+    }
+
+    /**
+     * set map.
+     * @param map map
+     */
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    /**
+     * get map.
+     * @return map
+     */
+    public Map getMap() {
+        return map;
+    }
+
+    /**
+     * set entities management.
+     * @param entitiesManagement entities management
+     */
+    public void setEntitiesManagement(EntitiesManagement entitiesManagement) {
+        this.entitiesManagement = entitiesManagement;
+    }
+
+    /**
+     * get entities management.
+     * @return entitiesManagement
+     */
+    public EntitiesManagement getEntitiesManagement() {
+        return entitiesManagement;
     }
 
     /**
@@ -94,5 +139,15 @@ public abstract class Entity extends Rectangle implements Runnable {
             }
         }
         return false;
+    }
+
+    public void draw(Graphics2D g) {
+        g.drawImage(
+                getSprite().getImag(),
+                getPosition().getX(),
+                getPosition().getY(),
+                getWidth(),
+                getHeight(),
+                null);
     }
 }

@@ -21,7 +21,6 @@ public class Sprite implements Configure {
     public Sprite(String pathImage) {
         this.pathImage = pathImage;
         try {
-//            System.out.println(getClass().getResourceAsStream(pathImage));
             this.imag = ImageIO.read(getClass().getResourceAsStream(pathImage));
         } catch (IOException e) {
             e.printStackTrace();
