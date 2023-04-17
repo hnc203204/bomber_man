@@ -290,7 +290,7 @@ public class EntitiesManagement implements Configure {
                 entities.get(index).setDead(true);
             }
         }
-        if (Enemy.numberOfEnemies == 0) {
+        if (Enemy.numberOfEnemies <= 0) {
             gamePlayPanel.setGameState(GameState.END, true);
         }
     }
@@ -301,7 +301,8 @@ public class EntitiesManagement implements Configure {
                 player.setDead(true);
             }
         }
-        if (Player.numberOfPlayers == 0) {
+        System.out.println(Player.numberOfPlayers);
+        if (Player.numberOfPlayers <= 0) {
             gamePlayPanel.setGameState(GameState.END, false);
         }
     }
