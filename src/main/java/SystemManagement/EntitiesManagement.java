@@ -60,7 +60,7 @@ public class EntitiesManagement implements Configure {
                 CHARACTER_WIDTH,
                 CHARACTER_HEIGHT,
                 new Sprite("/right2.png"),
-                new Velocity(2, 2),
+                DEFAULT_VELOCITY,
                 map,
                 this
         );
@@ -69,7 +69,7 @@ public class EntitiesManagement implements Configure {
                 ENEMY_WIDTH,
                 ENEMY_HEIGHT,
                 new Sprite("/enemy0.png"),
-                new Velocity(1, 1),
+                DEFAULT_VELOCITY,
                 map,
                 this
         ));
@@ -78,7 +78,7 @@ public class EntitiesManagement implements Configure {
                 ENEMY_WIDTH,
                 ENEMY_HEIGHT,
                 new Sprite("/enemy0.png"),
-                new Velocity(1, 1),
+                DEFAULT_VELOCITY,
                 map,
                 this
         ));
@@ -87,7 +87,7 @@ public class EntitiesManagement implements Configure {
                 ENEMY_WIDTH,
                 ENEMY_HEIGHT,
                 new Sprite("/enemy0.png"),
-                new Velocity(1, 1),
+                DEFAULT_VELOCITY,
                 map,
                 this
         ));
