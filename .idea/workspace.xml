@@ -4,73 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cb90463-3058-4ec7-a97f-1689ab1a5b98" name="Changes" comment="add new project">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Bot/EnemyBot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Enums/GameState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Enums/Items.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Executer/Execute.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Executer/GameFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Character/Enemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Item/Bomb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Object/Explode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ShortestPathAlgorithms/AllPairsShortestPath.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SystemManagement/EndGameManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/SystemManagement/GameTitleManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/background0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bomb0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bomb1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/bomb2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/center.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/chooseButton0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/continue0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/continue1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/continuebutton10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/down0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/down1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/down2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/downTail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/enemy0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/enemy1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/enemy2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/enemy3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/gameover0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/left0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/left1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/left2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/leftTail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/no0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/right0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/right1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/right2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/rightTail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/start0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/start1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/theend0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/title0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/up0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/up1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/up2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/upTail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/yes0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/youwin0.png" afterDir="false" />
+    <list default="true" id="3cb90463-3058-4ec7-a97f-1689ab1a5b98" name="Changes" comment="update new project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Atributes/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Atributes/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Atributes/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Atributes/Sprite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DataConfig/Configure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataConfig/Configure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DataConfig/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataConfig/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Object/Entity/Character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Character/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Object/Entity/Character/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Character/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Object/Entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Object/Entity/Item/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Item/Brick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Object/Entity/Item/Grass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Item/Grass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Object/Entity/Item/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Item/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Object/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Object/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Panel/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Panel/GamePlayPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Panel/IntoGamePanel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SystemManagement/EntitiesManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SystemManagement/EntitiesManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Map.txt" afterDir="false" />
     </list>
@@ -151,12 +87,20 @@
       <option name="project" value="LOCAL" />
       <updated>1681206099291</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update new project">
+      <created>1681611425327</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681611425327</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add new project" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new project" />
+    <MESSAGE value="update new project" />
+    <option name="LAST_COMMIT_MESSAGE" value="update new project" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/bomber_man$Execute.ic" NAME="Execute Coverage Results" MODIFIED="1681365972017" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

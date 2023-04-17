@@ -1,5 +1,7 @@
 package DataConfig;
 
+import Atributes.Velocity;
+
 public interface Configure {
     final int SCALE = 2;
 
@@ -66,4 +68,5 @@ public interface Configure {
     //SCREEN PROCESS
 
     final int FPS = 60;
+    final Velocity DEFAULT_VELOCITY = new Velocity(2, 2);
 }
