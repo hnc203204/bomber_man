@@ -190,24 +190,25 @@ public class EntitiesManagement implements Configure {
 
     public void execute() {
         ExecutorService executors = Executors.newCachedThreadPool();
-
-        if (!player.isDead()) executors.execute(player);
-        for (int index = 0; index < entities.size(); ++index) {
-            if (!entities.get(index).isDead()) {
-                executors.execute(entities.get(index));
+        if (gamePlayPanel.getGameState() == GameState.PLAY) {
+            if (!player.isDead()) executors.execute(player);
+            for (int index = 0; index < entities.size(); ++index) {
+                if (!entities.get(index).isDead()) {
+                    executors.execute(entities.get(index));
+                }
             }
-        }
 
-        for (int index = 0; index < bombs.size(); ++index) {
-            executors.execute(bombs.get(index));
-        }
+            for (int index = 0; index < bombs.size(); ++index) {
+                executors.execute(bombs.get(index));
+            }
 
-        for (int index = 0; index < explodes.size(); ++index) {
-            executors.execute(explodes.get(index));
-        }
+            for (int index = 0; index < explodes.size(); ++index) {
+                executors.execute(explodes.get(index));
+            }
 
-        for (int index = 0; index < enemyBots.size(); ++index) {
-            executors.execute(enemyBots.get(index));
+            for (int index = 0; index < enemyBots.size(); ++index) {
+                executors.execute(enemyBots.get(index));
+            }
         }
         executors.shutdown();
     }
