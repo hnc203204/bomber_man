@@ -76,10 +76,9 @@ public class Explode implements Runnable, Configure {
         while (lengthExplode > 0) {
             char value = map.getGridAt(currentPosition.getY() / TILE_SIZE, currentPosition.getX() / TILE_SIZE);
             if (value == Items.BRICK.getCharacterOnMap()) {
-                map.setGridAt(
+                map.restoreOriginal(
                         currentPosition.getY() / TILE_SIZE,
-                        currentPosition.getX() / TILE_SIZE,
-                        Items.GRASS.getCharacterOnMap()
+                        currentPosition.getX() / TILE_SIZE
                 );
                 explodeGrid.add(new Brick(
                                         new Point(
@@ -151,10 +150,9 @@ public class Explode implements Runnable, Configure {
         while (lengthExplode > 0) {
             char value = map.getGridAt(currentPosition.getY() / TILE_SIZE, currentPosition.getX() / TILE_SIZE);
             if (value == Items.BRICK.getCharacterOnMap()) {
-                map.setGridAt(
+                map.restoreOriginal(
                         currentPosition.getY() / TILE_SIZE,
-                        currentPosition.getX() / TILE_SIZE,
-                        Items.GRASS.getCharacterOnMap()
+                        currentPosition.getX() / TILE_SIZE
                 );
                 explodeGrid.add(new Brick(
                                         new Point(
@@ -214,10 +212,9 @@ public class Explode implements Runnable, Configure {
         while (lengthExplode > 0) {
             char value = map.getGridAt(currentPosition.getY() / TILE_SIZE, currentPosition.getX() / TILE_SIZE);
             if (value == Items.BRICK.getCharacterOnMap()) {
-                map.setGridAt(
+                map.restoreOriginal(
                         currentPosition.getY() / TILE_SIZE,
-                        currentPosition.getX() / TILE_SIZE,
-                        Items.GRASS.getCharacterOnMap()
+                        currentPosition.getX() / TILE_SIZE
                 );
                 explodeGrid.add(
                         new Brick(
@@ -279,10 +276,9 @@ public class Explode implements Runnable, Configure {
             char value = map.getGridAt(currentPosition.getY() / TILE_SIZE, currentPosition.getX() / TILE_SIZE);
             System.out.println(value);
             if (value == Items.BRICK.getCharacterOnMap()) {
-                map.setGridAt(
+                map.restoreOriginal(
                         currentPosition.getY() / TILE_SIZE,
-                        currentPosition.getX() / TILE_SIZE,
-                        Items.GRASS.getCharacterOnMap()
+                        currentPosition.getX() / TILE_SIZE
                 );
                 explodeGrid.add(
                         new Brick(

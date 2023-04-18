@@ -2,11 +2,14 @@ package SystemManagement;
 
 import Atributes.Sprite;
 import DataConfig.Configure;
+import Panel.GamePlayPanel;
 
 import java.awt.*;
 
 public class GameTitleManagement implements Configure {
 
+
+    private static GameTitleManagement gameTitleManagement;
     public static final int NUMBER_OF_BUTTONs = 2;
     private Sprite title;
     private Sprite[] startButton;
@@ -14,7 +17,7 @@ public class GameTitleManagement implements Configure {
     private int currentButton;
 //    private Sprite quitButton;
 
-    public GameTitleManagement() {
+    private GameTitleManagement() {
         title = new Sprite("/title0.png");
         startButton = new Sprite[] {
                 new Sprite("/start0.png"),
@@ -26,6 +29,13 @@ public class GameTitleManagement implements Configure {
         };
         currentButton = 0;
 
+    }
+
+    public static GameTitleManagement getInstance() {
+        if (gameTitleManagement == null) {
+            gameTitleManagement = new GameTitleManagement();
+        }
+        return gameTitleManagement;
     }
 
     public int getCurrentButton() {

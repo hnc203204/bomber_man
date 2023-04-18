@@ -6,8 +6,10 @@ import Atributes.Velocity;
 import Bot.EnemyBot;
 import DataConfig.Configure;
 import DataConfig.Map;
+import DataConfig.MapResources;
 import Enums.GameState;
 import Enums.Items;
+import Enums.TypeMap;
 import Object.Entity.Character.Enemy;
 import Object.Entity.Character.Player;
 import Object.Entity.Entity;
@@ -26,14 +28,13 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class EntitiesManagement implements Configure {
 
-    private static final Sprite wall = new Sprite("/wall.png");
-    private static final Sprite grass = new Sprite("/Grass.png");
-    private static final Sprite brick = new Sprite("/brick.png");
+    private static EntitiesManagement entitiesManagement;
     private ArrayList<Entity> entities;
     private Map map;
     private InputStream fileInputStream;
@@ -42,30 +43,35 @@ public class EntitiesManagement implements Configure {
     private LinkedList<Explode> explodes;
     private ArrayList<EnemyBot> enemyBots;
     private GamePlayPanel gamePlayPanel;
+    private ResourcesManagement resourcesManagement;
+
+    private Sprite gate = new Sprite("/gate0.png");
 
     /**
      * constructor 1.
      */
-    public EntitiesManagement(GamePlayPanel gamePlayPanel) {
+    private EntitiesManagement(GamePlayPanel gamePlayPanel) {
+        resourcesManagement = new ResourcesManagement();
+        MapResources mapResources = resourcesManagement.getMapResources();
         entities = new ArrayList<>();
         try {
-            fileInputStream = new FileInputStream(new File("src/main/resources/Map.txt"));
+            fileInputStream = new FileInputStream(new File(mapResources.getMapFile()));
             map = new Map();
-            map.readMap(fileInputStream);
+            map.readMap(fileInputStream, resourcesManagement.getMapResources().getMapSprite());
         } catch (IOException e) {
             e.printStackTrace();
         }
         player = new Player(
-                new Point(TILE_SIZE, TILE_SIZE),
+                new Point(2 * TILE_SIZE, TILE_SIZE),
                 CHARACTER_WIDTH,
                 CHARACTER_HEIGHT,
-                new Sprite("/right2.png"),
+                new Sprite(mapResources.getRight()[0]),
                 DEFAULT_VELOCITY,
                 map,
                 this
         );
         entities.add(new Enemy(
-                new Point(TILE_SIZE * (COLUMN - 2), TILE_SIZE),
+                new Point(TILE_SIZE * (COLUMN - 3), TILE_SIZE),
                 ENEMY_WIDTH,
                 ENEMY_HEIGHT,
                 new Sprite("/enemy0.png"),
@@ -74,7 +80,7 @@ public class EntitiesManagement implements Configure {
                 this
         ));
         entities.add(new Enemy(
-                new Point(TILE_SIZE * (COLUMN - 2), TILE_SIZE * (ROW - 2)),
+                new Point(TILE_SIZE * (COLUMN - 3), TILE_SIZE * (ROW - 2)),
                 ENEMY_WIDTH,
                 ENEMY_HEIGHT,
                 new Sprite("/enemy0.png"),
@@ -83,7 +89,7 @@ public class EntitiesManagement implements Configure {
                 this
         ));
         entities.add(new Enemy(
-                new Point(TILE_SIZE, TILE_SIZE * (ROW - 2)),
+                new Point(2 * TILE_SIZE, TILE_SIZE * (ROW - 2)),
                 ENEMY_WIDTH,
                 ENEMY_HEIGHT,
                 new Sprite("/enemy0.png"),
@@ -97,28 +103,46 @@ public class EntitiesManagement implements Configure {
         this.gamePlayPanel = gamePlayPanel;
     }
 
+    public static EntitiesManagement getInstance(GamePlayPanel gamePlayPanel) {
+        if (entitiesManagement == null) {
+            entitiesManagement = new EntitiesManagement(gamePlayPanel);
+        }
+        return entitiesManagement;
+    }
+
+    public ResourcesManagement getResourcesManagement() {
+        return resourcesManagement;
+    }
+
+    public void setResourcesManagement(ResourcesManagement resourcesManagement) {
+        this.resourcesManagement = resourcesManagement;
+    }
+
     public void reset() {
         entities = new ArrayList<>();
         try {
-            fileInputStream = new FileInputStream(new File("src/main/resources/Map.txt"));
+            fileInputStream = new FileInputStream(new File(resourcesManagement.getMapResources().getMapFile()));
             map = new Map();
-            map.readMap(fileInputStream);
+            map.readMap(fileInputStream, resourcesManagement.getMapResources().getMapSprite());
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        if (resourcesManagement.getMapResources().getNameMap().equals(TypeMap.CLASSICAL.getTypeMap())) {
+            map.generateDoor();
         }
         Player.numberOfPlayers = 0;
         Enemy.numberOfEnemies = 0;
         player = new Player(
-                new Point(TILE_SIZE, TILE_SIZE),
+                new Point(2 * TILE_SIZE, TILE_SIZE),
                 CHARACTER_WIDTH,
                 CHARACTER_HEIGHT,
-                new Sprite("/right2.png"),
+                new Sprite(resourcesManagement.getMapResources().getRight()[0]),
                 DEFAULT_VELOCITY,
                 map,
                 this
         );
         entities.add(new Enemy(
-                new Point(TILE_SIZE * (COLUMN - 2), TILE_SIZE),
+                new Point(TILE_SIZE * (COLUMN - 3), TILE_SIZE),
                 ENEMY_WIDTH,
                 ENEMY_HEIGHT,
                 new Sprite("/enemy0.png"),
@@ -127,7 +151,7 @@ public class EntitiesManagement implements Configure {
                 this
         ));
         entities.add(new Enemy(
-                new Point(TILE_SIZE * (COLUMN - 2), TILE_SIZE * (ROW - 2)),
+                new Point(TILE_SIZE * (COLUMN - 3), TILE_SIZE * (ROW - 2)),
                 ENEMY_WIDTH,
                 ENEMY_HEIGHT,
                 new Sprite("/enemy0.png"),
@@ -136,7 +160,7 @@ public class EntitiesManagement implements Configure {
                 this
         ));
         entities.add(new Enemy(
-                new Point(TILE_SIZE, TILE_SIZE * (ROW - 2)),
+                new Point(2 * TILE_SIZE, TILE_SIZE * (ROW - 2)),
                 ENEMY_WIDTH,
                 ENEMY_HEIGHT,
                 new Sprite("/enemy0.png"),
@@ -235,14 +259,27 @@ public class EntitiesManagement implements Configure {
     }
 
     public void drawEntities(Graphics2D g) {
-        for (int indexI = 0; indexI < ROW; ++indexI) {
-            for (int indexJ = 0; indexJ < COLUMN; ++indexJ) {
-                if (map.getGridAt(indexI, indexJ) == Items.WALL.getCharacterOnMap()) {
-                    g.drawImage(wall.getImag(), indexJ * TILE_SIZE, indexI * TILE_SIZE, TILE_SIZE, TILE_SIZE, null);
-                } else if (map.getGridAt(indexI, indexJ) == Items.GRASS.getCharacterOnMap()) {
-                    g.drawImage(grass.getImag(), indexJ * TILE_SIZE, indexI * TILE_SIZE, TILE_SIZE, TILE_SIZE, null);
-                } else if (map.getGridAt(indexI, indexJ) == Items.BRICK.getCharacterOnMap()) {
-                    g.drawImage(brick.getImag(), indexJ * TILE_SIZE, indexI * TILE_SIZE, TILE_SIZE, TILE_SIZE, null);
+        map.draw(g);
+        for (int X = 0; X < ROW; ++X) {
+            for (int Y = 0; Y < COLUMN; ++Y) {
+                if (map.getGridAt(X, Y) == Items.BRICK.getCharacterOnMap()) {
+                    g.drawImage(
+                            resourcesManagement.getMapResources().getBrick().getImag(),
+                            Y * TILE_SIZE,
+                            X * TILE_SIZE,
+                            TILE_SIZE,
+                            TILE_SIZE,
+                            null
+                    );
+                } else if (map.getGridAt(X, Y) == 'C') {
+                    g.drawImage(
+                            gate.getImag(),
+                            Y * TILE_SIZE,
+                            X * TILE_SIZE,
+                            TILE_SIZE,
+                            TILE_SIZE,
+                            null
+                    );
                 }
             }
         }
@@ -276,6 +313,38 @@ public class EntitiesManagement implements Configure {
         player.setGoDown(value);
     }
 
+    public void meetTheDoor() {
+        if (!player.isDead()) {
+            int X = player.getPosition().getY() / TILE_SIZE;
+            int Y = player.getPosition().getX() / TILE_SIZE;
+            if (map.getGridAt(X, Y) == 'C') {
+                gamePlayPanel.setGameState(GameState.END, true);
+            }
+        }
+    }
+
+    public void revire(Enemy enemy) {
+        Point newPoint = new Point();
+        Random random = new Random();
+        int choose = random.nextInt(4);
+        switch (choose) {
+            case 0:
+                newPoint = TOP_LEFT;
+                break;
+            case 1:
+                newPoint = TOP_RIGHT;
+                break;
+            case 2:
+                newPoint = UNDER_LEFT;
+                break;
+            case 3:
+                newPoint = UNDER_RIGHT;
+                break;
+        }
+        enemy.setPosition(newPoint);
+        enemy.setDead(false);
+    }
+
     public void explodeCollision() {
         if (!player.isDead() && explodes.peekFirst().isCollision(player)) {
             player.setDead(true);
@@ -283,6 +352,9 @@ public class EntitiesManagement implements Configure {
         for (int index = 0; index < entities.size(); ++index) {
             if (!entities.get(index).isDead() && explodes.peekFirst().isCollision(entities.get(index))) {
                 entities.get(index).setDead(true);
+                if (resourcesManagement.getMapResources().getNameMap().equals(TypeMap.CLASSICAL.getTypeMap())) {
+                    revire((Enemy) entities.get(index));
+                }
             }
         }
         for (int index = 0; index < entities.size(); ++index) {
@@ -290,7 +362,8 @@ public class EntitiesManagement implements Configure {
                 entities.get(index).setDead(true);
             }
         }
-        if (Enemy.numberOfEnemies <= 0) {
+        if (Enemy.numberOfEnemies <= 0
+                && resourcesManagement.getMapResources().getNameMap().equals(TypeMap.KILL_ALL.getTypeMap())) {
             gamePlayPanel.setGameState(GameState.END, true);
         }
     }

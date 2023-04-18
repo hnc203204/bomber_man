@@ -5,9 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cb90463-3058-4ec7-a97f-1689ab1a5b98" name="Changes" comment="update new project">
+      <change afterPath="$PROJECT_DIR$/src/main/java/DataConfig/MapResources.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Enums/TypeMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/SystemManagement/ResourcesManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/brick0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/brick1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/down_1_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/down_1_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/down_1_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/down_2_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/down_2_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/down_2_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/gate0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/left_1_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/left_1_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/left_1_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/left_2_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/left_2_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/left_2_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/map_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/map_1_txt.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/map_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/map_2_txt.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/right_1_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/right_1_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/right_1_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/right_2_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/right_2_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/right_2_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/up_1_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/up_1_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/up_1_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/up_2_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/up_2_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/up_2_2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataConfig/Configure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataConfig/Configure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DataConfig/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DataConfig/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Enums/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enums/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Executer/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Executer/GameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Object/Entity/Character/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Object/Entity/Character/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Object/Explode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Object/Explode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Panel/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Panel/GamePlayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SystemManagement/EndGameManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SystemManagement/EndGameManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SystemManagement/EntitiesManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SystemManagement/EntitiesManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Map.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SystemManagement/GameTitleManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SystemManagement/GameTitleManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Map.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/brick.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681692116645</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="update new project">
+      <created>1681693425246</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681693425246</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

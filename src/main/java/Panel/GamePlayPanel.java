@@ -21,10 +21,14 @@ import java.util.concurrent.Executors;
 
 public class GamePlayPanel extends JPanel implements Runnable, KeyListener, Configure {
 
-    //TODO: Fixe Map
+    //TODO: Fix Map
     //TODO: Scores.
     //TODO: Status.
     //TODO: Lives.
+    //TODO: More map.
+    //TODO: Keep track.
+    //TODO: Audio.
+    //TODO: Dead animation.
 
 
 
@@ -42,10 +46,10 @@ public class GamePlayPanel extends JPanel implements Runnable, KeyListener, Conf
         addKeyListener(this);
         setFocusable(true);
         gameState = GameState.GAMETITLE;
-        entitiesManagement = new EntitiesManagement(this);
+        entitiesManagement = EntitiesManagement.getInstance(this);
         entitiesManagement.updateEnemyBot();
-        gameTitleManagement = new GameTitleManagement();
-        endGameManagement = new EndGameManagement();
+        gameTitleManagement = GameTitleManagement.getInstance();
+        endGameManagement = EndGameManagement.getInstance();
     }
 
     public void setGameState(GameState gameState, boolean win) {
@@ -115,6 +119,9 @@ public class GamePlayPanel extends JPanel implements Runnable, KeyListener, Conf
             case END:
                 endGameManagement.draw(g2);
                 break;
+            case MAP_MENU:
+                entitiesManagement.getResourcesManagement().draw(g2);
+                break;
         }
 
 
@@ -154,7 +161,7 @@ public class GamePlayPanel extends JPanel implements Runnable, KeyListener, Conf
                         gameTitleManagement.downToButton();
                         break;
                     case KeyEvent.VK_ENTER:
-                        gameState = GameState.PLAY;
+                        gameState = GameState.MAP_MENU;
                         break;
                 }
                 break;
@@ -175,6 +182,21 @@ public class GamePlayPanel extends JPanel implements Runnable, KeyListener, Conf
                             gameState = GameState.GAMETITLE;
                         }
                         break;
+                }
+                break;
+            case MAP_MENU:
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_LEFT:
+                        entitiesManagement.getResourcesManagement().upToButton();
+                        break;
+                    case KeyEvent.VK_RIGHT:
+                        entitiesManagement.getResourcesManagement().downToButton();
+                        break;
+                    case KeyEvent.VK_ENTER: {
+                        entitiesManagement.reset();
+                        gameState = GameState.PLAY;
+                        break;
+                    }
                 }
                 break;
         }

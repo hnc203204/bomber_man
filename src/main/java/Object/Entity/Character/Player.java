@@ -28,26 +28,10 @@ public class Player extends Character implements Configure {
      */
     public Player(Point position, int width, int height, Sprite orginal, Velocity velocity, Map map, EntitiesManagement entitiesManagement) {
         super(position, width, height, orginal, velocity, map, entitiesManagement);
-        Left = new Sprite[] {
-                new Sprite("/left0.png"),
-                new Sprite("/left1.png"),
-                new Sprite("/left2.png"),
-        };
-        Right = new Sprite[] {
-                new Sprite("/right0.png"),
-                new Sprite("/right1.png"),
-                new Sprite("/right2.png"),
-        };
-        Up = new Sprite[] {
-                new Sprite("/up0.png"),
-                new Sprite("/up1.png"),
-                new Sprite("/up2.png"),
-        };
-        Down = new Sprite[] {
-                new Sprite("/down0.png"),
-                new Sprite("/down1.png"),
-                new Sprite("/down2.png"),
-        };
+        Left = entitiesManagement.getResourcesManagement().getMapResources().getLeft();
+        Right = entitiesManagement.getResourcesManagement().getMapResources().getRight();
+        Up = entitiesManagement.getResourcesManagement().getMapResources().getUp();
+        Down = entitiesManagement.getResourcesManagement().getMapResources().getDown();
         numberOfPlayers++;
     }
 
@@ -65,26 +49,11 @@ public class Player extends Character implements Configure {
                 other.getMap(),
                 other.getEntitiesManagement()
         );
-        Left = new Sprite[] {
-                new Sprite("/left0.png"),
-                new Sprite("/left1.png"),
-                new Sprite("/left2.png"),
-        };
-        Right = new Sprite[] {
-                new Sprite("/right0.png"),
-                new Sprite("/right1.png"),
-                new Sprite("/right2.png"),
-        };
-        Up = new Sprite[] {
-                new Sprite("/up0.png"),
-                new Sprite("/up1.png"),
-                new Sprite("/up2.png"),
-        };
-        Down = new Sprite[] {
-                new Sprite("/down0.png"),
-                new Sprite("/down1.png"),
-                new Sprite("/down2.png"),
-        };
+        Left = entitiesManagement.getResourcesManagement().getMapResources().getLeft();
+        Right = entitiesManagement.getResourcesManagement().getMapResources().getRight();
+        Up = entitiesManagement.getResourcesManagement().getMapResources().getUp();
+        Down = entitiesManagement.getResourcesManagement().getMapResources().getDown();
+        numberOfPlayers++;
     }
 
     /**
@@ -125,7 +94,6 @@ public class Player extends Character implements Configure {
         this.currentBombs = currentBombs;
     }
 
-    //TODO: laying bomb.
     public Bomb layingBomb(Map map) {
         Point grid = map.onGrid(getPosition().getX(), getPosition().getY(), this);
         return new Bomb(grid, TILE_SIZE, TILE_SIZE, new Sprite("/bomb0.png"), getEntitiesManagement(), map);
@@ -159,6 +127,11 @@ public class Player extends Character implements Configure {
     }
 
 
+    @Override
+    public void update() {
+        super.update();
+        entitiesManagement.meetTheDoor();
+    }
 
     /**
      * reset current bombs.

@@ -1,34 +1,35 @@
 package DataConfig;
 
 import Atributes.Velocity;
+import Atributes.Point;
 
 public interface Configure {
-    final int SCALE = 2;
+    final int SCALE = 3;
 
     // SCREEN SETTING
 
-    final int ORIGINAL_TILE = 26;
+    final int ORIGINAL_TILE = 16;
     final int TILE_SIZE = ORIGINAL_TILE * SCALE;
-    final int COLUMN = 19;
-    final int ROW = 17;
+    final int COLUMN = 17;
+    final int ROW = 13;
     final int SCREEN_HORIZONTAL = COLUMN * TILE_SIZE;
     final int SCREEN_VERTICAL = ROW * TILE_SIZE;
 
     // CHARACTER SETTING
-    final int ORIGINAL_CHARACTER_WIDTH = 15;
-    final int ORIGINAL_CHARACTER_HEIGHT = 24;
+    final int ORIGINAL_CHARACTER_WIDTH = 9;
+    final int ORIGINAL_CHARACTER_HEIGHT = 14;
     final int CHARACTER_WIDTH = ORIGINAL_CHARACTER_WIDTH * SCALE;
     final int CHARACTER_HEIGHT = ORIGINAL_CHARACTER_HEIGHT * SCALE;
 
     // ENERMY SETTING
-    final int ORIGINAL_ENEMY_WIDTH = 16;
-    final int ORIGINAL_ENEMY_HEIGHT = 16;
+    final int ORIGINAL_ENEMY_WIDTH = 14;
+    final int ORIGINAL_ENEMY_HEIGHT = 14;
     final int ENEMY_WIDTH = ORIGINAL_ENEMY_WIDTH * SCALE;
     final int ENEMY_HEIGHT = ORIGINAL_ENEMY_HEIGHT * SCALE;
 
     //GAME TITLE SETTING
-    final int ORIGINAL_TITLE_WIDTH = 227;
-    final int ORIGNAL_TITLE_HEIGHT = 139;
+    final int ORIGINAL_TITLE_WIDTH = ORIGINAL_TILE * 7;
+    final int ORIGNAL_TITLE_HEIGHT = ORIGINAL_TILE * 5;
     final int TITLE_WIDTH = ORIGINAL_TITLE_WIDTH * SCALE;
     final int TITLE_HEIGHT = ORIGNAL_TITLE_HEIGHT * SCALE;
     final int LABEL_X = 5;
@@ -36,19 +37,19 @@ public interface Configure {
 
     final int ORIGINAL_START_BUTTON_WIDTH = 49;
     final int ORGINAL_START_BUTTON_HEIGHT = 9;
-    final int START_BUTTON_WIDTH = ORIGINAL_START_BUTTON_WIDTH * (SCALE + 1);
-    final int START_BUTTON_HEIGHT = ORGINAL_START_BUTTON_HEIGHT * (SCALE + 1);
+    final int START_BUTTON_WIDTH = ORIGINAL_START_BUTTON_WIDTH * SCALE;
+    final int START_BUTTON_HEIGHT = ORGINAL_START_BUTTON_HEIGHT * SCALE;
 
     final int ORIGINAL_CONTINUE_BUTTON_WIDTH = 72;
     final int ORIGINAL_CONTINUE_BUTTON_HEIGHT = 8;
-    final int CONTINUE_BUTTON_WIDTH = ORIGINAL_CONTINUE_BUTTON_WIDTH * (SCALE + 1);
-    final int CONTINUE_BUTTON_HEIGHT = ORIGINAL_CONTINUE_BUTTON_HEIGHT * (SCALE + 1);
+    final int CONTINUE_BUTTON_WIDTH = ORIGINAL_CONTINUE_BUTTON_WIDTH * SCALE;
+    final int CONTINUE_BUTTON_HEIGHT = ORIGINAL_CONTINUE_BUTTON_HEIGHT * SCALE;
 
     //ENDGAME SETTING
     final int ORIGINAL_END_TITLE_WIDTH = 48;
     final int ORIGINAL_END_TITLE_HEIGHT = 30;
-    final int END_TITLE_WIDTH = ORIGINAL_END_TITLE_WIDTH * (SCALE + 3);
-    final int END_TITLE_HEIGHT = ORIGINAL_END_TITLE_HEIGHT * (SCALE + 3);
+    final int END_TITLE_WIDTH = ORIGINAL_END_TITLE_WIDTH * SCALE;
+    final int END_TITLE_HEIGHT = ORIGINAL_END_TITLE_HEIGHT * SCALE;
 
     final int ORIGINAL_YES_TITLE_WIDTH = 37;
     final int ORIGINAL_YES_TITLE_HEIGHT = 13;
@@ -65,8 +66,22 @@ public interface Configure {
     final int POINT_WIDTH = ORIGINAL_POINT_WIDTH * SCALE;
     final int POINT_HEIGHT = ORIGINAL_POINT_HEIGHT * SCALE;
 
+    //MAP MENU
+    final int ORIGINAL_MAP_WIDTH = 5 * ORIGINAL_TILE;
+    final int ORIGINAL_MAP_HEIGHT = 3 * ORIGINAL_TILE;
+    final int MAP_WIDTH = ORIGINAL_MAP_WIDTH * SCALE;
+    final int MAP_HEIGHT = ORIGINAL_MAP_HEIGHT * SCALE;
+    final int LEFT_PAV = 2 * TILE_SIZE;
+    final int UP_PAV = 4 * TILE_SIZE;
+
     //SCREEN PROCESS
 
     final int FPS = 60;
     final Velocity DEFAULT_VELOCITY = new Velocity(2, 2);
+
+    //GAME ORIGINAL STATE
+    final Point TOP_LEFT = new Point(TILE_SIZE * 2, TILE_SIZE);
+    final Point TOP_RIGHT = new Point(TILE_SIZE * (COLUMN - 3), TILE_SIZE);
+    final Point UNDER_LEFT = new Point(TILE_SIZE * 2, TILE_SIZE * (ROW - 2));
+    final Point UNDER_RIGHT = new Point(TILE_SIZE * (COLUMN - 3), TILE_SIZE * (ROW - 2));
 }

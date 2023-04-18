@@ -8,7 +8,6 @@ public class GameFrame extends JFrame {
 
     GamePlayPanel gamePanel;
 
-    //TODO: Game menu
 
     public GameFrame() {
         super("Bomberman");

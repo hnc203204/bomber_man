@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class EndGameManagement implements Configure {
 
-
+    private static EndGameManagement endGameManagement;
     public static final int NUMBER_OF_BUTTONs = 2;
     private int currentButton = 0;
     private Sprite table;
@@ -19,7 +19,7 @@ public class EndGameManagement implements Configure {
 
     private boolean win;
 
-    public EndGameManagement() {
+    private EndGameManagement() {
         table = new Sprite("/theend0.png");
         endTitle = new Sprite[] {
                 new Sprite("/gameover0.png"),
@@ -31,6 +31,13 @@ public class EndGameManagement implements Configure {
                 new Sprite("/no0.png")
         };
         nose = new Sprite("/chooseButton0.png");
+    }
+
+    public static EndGameManagement getInstance() {
+        if (endGameManagement == null) {
+            endGameManagement = new EndGameManagement();
+        }
+        return endGameManagement;
     }
 
     public boolean isWin() {
