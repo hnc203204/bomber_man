@@ -4,7 +4,7 @@ import Atributes.Velocity;
 import Atributes.Point;
 
 public interface Configure {
-    final int SCALE = 3;
+    final int SCALE = 4;
 
     // SCREEN SETTING
 
@@ -84,4 +84,10 @@ public interface Configure {
     final Point TOP_RIGHT = new Point(TILE_SIZE * (COLUMN - 3), TILE_SIZE);
     final Point UNDER_LEFT = new Point(TILE_SIZE * 2, TILE_SIZE * (ROW - 2));
     final Point UNDER_RIGHT = new Point(TILE_SIZE * (COLUMN - 3), TILE_SIZE * (ROW - 2));
+
+    //PAUSE MENU
+    final int PAUSE_MENU_WIDTH = TILE_SIZE * 6;
+    final int PAUSE_MENU_HEIGHT = TILE_SIZE * 5;
+
+
 }

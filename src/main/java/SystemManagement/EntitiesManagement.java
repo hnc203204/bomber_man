@@ -180,7 +180,6 @@ public class EntitiesManagement implements Configure {
                     new EnemyBot(
                             player,
                             (Enemy) entities.get(index),
-                            map,
                             map.getAllPairsShortestPath()
                     )
             );
@@ -378,5 +377,9 @@ public class EntitiesManagement implements Configure {
         if (Player.numberOfPlayers <= 0) {
             gamePlayPanel.setGameState(GameState.END, false);
         }
+    }
+
+    public void printInfo() {
+
     }
 }

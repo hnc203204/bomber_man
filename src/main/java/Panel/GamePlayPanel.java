@@ -9,6 +9,7 @@ import SystemManagement.EndGameManagement;
 import SystemManagement.EntitiesManagement;
 import Atributes.Point;
 import SystemManagement.GameTitleManagement;
+import SystemManagement.PauseMenu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,6 +37,7 @@ public class GamePlayPanel extends JPanel implements Runnable, KeyListener, Conf
     GameTitleManagement gameTitleManagement;
     GameState gameState;
     EndGameManagement endGameManagement;
+    PauseMenu pauseMenu;
 
     public GamePlayPanel() {
 //        this.keyListener = keyListener;
@@ -50,6 +52,7 @@ public class GamePlayPanel extends JPanel implements Runnable, KeyListener, Conf
         entitiesManagement.updateEnemyBot();
         gameTitleManagement = GameTitleManagement.getInstance();
         endGameManagement = EndGameManagement.getInstance();
+        pauseMenu = new PauseMenu();
     }
 
     public void setGameState(GameState gameState, boolean win) {
@@ -112,6 +115,11 @@ public class GamePlayPanel extends JPanel implements Runnable, KeyListener, Conf
                 gameTitleManagement.draw(g2);
                 break;
 
+            case PAUSE:
+                entitiesManagement.drawEntities(g2);
+                pauseMenu.draw(g2);
+                break;
+
             case PLAY:
                 entitiesManagement.drawEntities(g2);
                 break;
@@ -150,6 +158,9 @@ public class GamePlayPanel extends JPanel implements Runnable, KeyListener, Conf
                         entitiesManagement.playerLayingBomb();
                         break;
                     }
+                    case KeyEvent.VK_ESCAPE:
+                        gameState = GameState.PAUSE;
+                        break;
                 }
                 break;
             case GAMETITLE:
@@ -161,7 +172,16 @@ public class GamePlayPanel extends JPanel implements Runnable, KeyListener, Conf
                         gameTitleManagement.downToButton();
                         break;
                     case KeyEvent.VK_ENTER:
-                        gameState = GameState.MAP_MENU;
+                        switch (gameTitleManagement.getCurrentButton())
+                        {
+                            case 0:
+                                gameState = GameState.MAP_MENU;
+                                break;
+                            case 1:
+                                gameState = GameState.PLAY;
+                                break;
+
+                        }
                         break;
                 }
                 break;
@@ -197,6 +217,26 @@ public class GamePlayPanel extends JPanel implements Runnable, KeyListener, Conf
                         gameState = GameState.PLAY;
                         break;
                     }
+                }
+                break;
+            case PAUSE:
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_UP:
+                        pauseMenu.upToButton();
+                        break;
+                    case KeyEvent.VK_DOWN:
+                        pauseMenu.upToButton();
+                        break;
+                    case KeyEvent.VK_ENTER:
+                        switch (pauseMenu.getCurrentButton()) {
+                            case 0:
+                                gameState = GameState.PLAY;
+                                break;
+                            case 1:
+                                gameState = GameState.GAMETITLE;
+                                break;
+                        }
+                        break;
                 }
                 break;
         }

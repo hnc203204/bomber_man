@@ -9,8 +9,6 @@ import Object.Entity.Character.Enemy;
 import Object.Entity.Character.Player;
 import ShortestPathAlgorithms.AllPairsShortestPath;
 
-import javax.swing.text.Position;
-import java.lang.invoke.VarHandle;
 import java.util.ArrayList;
 
 public class EnemyBot implements Runnable, Configure {
@@ -19,7 +17,7 @@ public class EnemyBot implements Runnable, Configure {
 
     private AllPairsShortestPath allPairsShortestPath;
 
-    public EnemyBot(Player player, Enemy enemy, Map map, AllPairsShortestPath allPairsShortestPath) {
+    public EnemyBot(Player player, Enemy enemy, AllPairsShortestPath allPairsShortestPath) {
         this.player = player;
         this.enemy = enemy;
         this.allPairsShortestPath = allPairsShortestPath;
@@ -79,7 +77,7 @@ public class EnemyBot implements Runnable, Configure {
                     }
                 }
             }
-        } 
+        }
 
         return new Velocity(0, 0);
 

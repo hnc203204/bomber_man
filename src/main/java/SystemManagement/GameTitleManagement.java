@@ -61,7 +61,6 @@ public class GameTitleManagement implements Configure {
                 START_BUTTON_WIDTH, START_BUTTON_HEIGHT, null);
         g.drawImage(continueButton[((currentButton == 1) ? 1 : 0)].getImag(), TILE_SIZE * (LABEL_X + 2), TILE_SIZE * (LABEL_Y + 2) + TITLE_HEIGHT,
                 CONTINUE_BUTTON_WIDTH, CONTINUE_BUTTON_HEIGHT, null);
-
     }
 
 }

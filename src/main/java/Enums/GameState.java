@@ -5,6 +5,6 @@ public enum GameState {
     PLAY,
     PAUSE,
     MAP_MENU,
-    END;
+    END
 
 }

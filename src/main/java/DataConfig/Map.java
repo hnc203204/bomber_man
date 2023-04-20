@@ -51,14 +51,14 @@ public class Map implements Configure {
     }
 
     public void generateDoor() {
-        for (int X = 6; X < ROW; ++X) {
-            for (int Y = 7; Y < COLUMN; ++Y) {
+        for (int X = 9; X < ROW - 1; ++X) {
+            for (int Y = 3; Y < COLUMN - 2; ++Y) {
                 if (getGridAt(X, Y) == Items.BRICK.getCharacterOnMap()) {
                     Random random = new Random();
                     int isChoose = random.nextInt(2);
                     if (isChoose == 1) {
                         originalMap[X][Y] = 'C';
-                        break;
+                        return;
                     }
                 }
             }

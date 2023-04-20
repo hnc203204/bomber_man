@@ -140,4 +140,15 @@ public class Rectangle implements Configure {
         );
         return (min_right - max_left) * (min_down - max_up);
     }
+
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Rectangle[%s, width=%d, height%d]",
+                position.toString(),
+                getWidth(),
+                getHeight()
+        );
+    }
 }
